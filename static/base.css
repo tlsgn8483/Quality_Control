@@ -1,0 +1,16 @@
+.Quality_Control_logo{
+    font-family : 'Roboto', cursive;
+}
+.Quality_Control_footer_button{
+    font-size: .6rem;
+}
+
+.Quality_Control_footer {
+    text-align: center; margin-top: 2rem;
+}
+
+
+.Quality_Control_header {
+    text-align: center;
+    margin: 2rem 0;
+}
