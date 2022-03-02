@@ -6,9 +6,30 @@
             Quality Control Software Project
         </h1>
     </div>
-    <div style="font-size: .6rem">
-        <span>nav1</span>
-        <span>nav1</span>
-        <span>nav1</span>
-    </div>
+    <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand">Navbar</a>
+        {% if not user.is_authenticated %}
+            <a href="{%  url 'accountapp:login' %}?next={{ request.path }}" class="Quality_Control_header">
+                <span>login</span>
+            </a>
+            <a href="{%  url 'accountapp:create' %}?next={{ request.path }}" class="Quality_Control_header">
+                <span>SignUp</span>
+            </a>
+            {%  else %}
+            <a href="{% url 'accountapp:detail' pk=user.pk %}" class="Quality_Control_header">
+                <span>MyPage</span>
+            </a>
+            <a href="{%  url 'accountapp:logout' %}?next={{ request.path}}"
+            style="border-color: black">
+                <span>logout</span>
+            </a>
+        {% endif %}
+        <a class="navbar-brand">MyPage</a>
+        <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
 </div>

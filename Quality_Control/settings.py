@@ -54,7 +54,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap4',
     'accountapp',
+'profileapp',
 ]
 
 MIDDLEWARE = [
@@ -143,8 +145,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-# LOGIN_REDIRECT_URL = reverse_lazy('home')
-# LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
+LOGIN_REDIRECT_URL = reverse_lazy('home')
+LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
 #
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
