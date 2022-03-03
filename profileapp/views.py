@@ -9,11 +9,13 @@ from profileapp.decorators import profile_ownership_required
 from profileapp.forms import ProfileCreationForm
 from profileapp.models import Profile
 
+
 class ProfileCreateView(CreateView):
     model = Profile
     context_object_name = 'target_profile'
     form_class = ProfileCreationForm
     template_name = 'profileapp/create.html'
+
     def form_valid(self, form):
         temp_profile = form.save(commit=False)
         temp_profile.user = self.request.user

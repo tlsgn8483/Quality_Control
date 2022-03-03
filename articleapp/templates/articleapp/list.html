@@ -5,7 +5,7 @@
 <style>
     .container {
         padding: 0;
-        margin: 0, auto;
+        margin: 0;
     }
 
     .container a {
@@ -43,13 +43,15 @@
 
     {% include 'snippets/pagination.html' with page_obj=page_obj %}
 
-    </div>
-
-    </div>
-    <div style="text-align: center">
+        <div style="text-align: center;">
         <a href="{%  url 'articleapp:create' %}" class="btn btn-dark rounded-pill col-3 mt-3 mb-3 px-3">
             Create Ariticle
         </a>
     </div>
+
+    </div>
+
+    </div>
+
 
 {% endblock %}
