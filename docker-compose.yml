@@ -1,7 +1,6 @@
 version: "3.7"
 services:
   django:
-    image: django_Quality_Control:1
+    image: django_qc:1
     ports:
       - 8000:8000
-      -
