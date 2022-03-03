@@ -86,3 +86,4 @@ venv/
 
 __pycache__/
 
+Dockerfile
