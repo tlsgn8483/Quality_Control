@@ -42,6 +42,7 @@ class ArticleUpdateView(UpdateView):
 class ArticleDetailView(DetailView, FormMixin):
     model = Article
     context_object_name = 'target_article'
+    form_class = ArticleCreationForm
     template_name = 'articleapp/detail.html'
 
 @method_decorator(article_ownership_required, 'get')

@@ -1,33 +1,41 @@
 {% extends 'base.html' %}
+<style>
+{#<!-- 비디오 설정을 함 -->#}
+
+.videoTeduri{
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+.videoTeduri iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
 
 {% block content %}
-
     <div>
         <div style="text-align: center; max-width: 700px; margin: 4rem auto;">
             <h1>
                 {{ target_article.title }}
             </h1>
-{#        <div style="height: 2rem;">#}
-{#            <a href="{% url 'likeapp:article_like' pk=target_article.pk %}">#}
-{#                <i style="vertical-align: middle; font-size: 1.2rem; color: #f77" class="material-icons">#}
-{#                    favorite#}
-{#                </i>#}
-{#                <span style="vertical-align: middle; font-size: 1.2rem;">#}
-{#                {{ target_article.like }}#}
-{#                </span>#}
-{#            </a>#}
-{#        </div>#}
-            <h5>
-                {{ target_article.writer.profile.nickname }}
-            </h5>
+
+{#            <h5>#}
+{#                {{ target_article.writer.profile.nickname }}#}
+{#            </h5>#}
             <hr>
            <img style="width: 100%; border-radius: 1rem; margin: 2rem 0;"
                    src="{{ target_article.image.url }}" alt="">
-
+           <video class="embed-reponsive embed-responsive-21by9" controls="controls" style="width: 25rem; height: auto; border-radius: 4rem";>
+               <source src="{{ target_article.video.url }}" type="video/mp4"/>
+           </video>
             <div class = "text-left" style="text-align: left">
                 {{ target_article.content | safe }}
             </div>
-            {%  if target_article.writer == user %}
+
             <a href="{% url 'articleapp:update' pk=target_article.pk%}"
             class="btn btn-primary rounded-pill col-3">
                 <p>Update Article</p>
@@ -36,12 +44,9 @@
             class="btn btn-danger rounded-pill col-3">
                 <p>Delete Article</p>
             </a>
-            {%  endif %}
-           <hr>
-{#            {% for comment in target_article.comment.all %}#}
-{#                {%  include 'commentapp/detail.html' with comment=comment %}#}
-{#            {% endfor %}#}
-{#            {% include 'commentapp/create.html' with article=target_article %}#}
+
+
+           </hr>
         </div>
     </div>
 {% endblock %}
